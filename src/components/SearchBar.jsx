@@ -9,10 +9,20 @@ const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
+    const onhandleSubmit = (e) => {
+      e.preventDefault();
+  
+      if (searchTerm) {
+        navigate(`/search/${searchTerm}`);
+  
+        setSearchTerm('');
+      }
+    };
+
   return (
     <Paper 
       component='form'
-      // onSubmit={onhandleSubmit}
+      onSubmit={onhandleSubmit}
       sx={{
         borderRadius: 20,
         border: '1px solid #e3e3e3',
