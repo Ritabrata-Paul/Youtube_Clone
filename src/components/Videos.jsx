@@ -2,13 +2,15 @@ import React from "react";
 import { Stack, Box } from "@mui/material";
 
 
-import { VideoCard, ChannelCard } from './';
+import { ChannelCard, Loader, VideoCard } from "./";
 
-const Videos = ({ videos }) => {
+const Videos = ({ videos, direction }) => {
+
+  if(!videos?.length) return <Loader />;
   
   return (
     <Stack
-      direction="row" 
+      direction={direction || "row"} 
       flexWrap="wrap" alignItems="start" justifyContent="start"
       gap={2}
     >
@@ -22,4 +24,4 @@ const Videos = ({ videos }) => {
   )
 }
 
-export default Videos
+export default Videos;
